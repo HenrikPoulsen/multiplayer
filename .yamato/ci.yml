@@ -52,8 +52,7 @@ validation:{{ version }}:
     image: {{ platform.agent.image }}
     flavor: {{ platform.agent.flavor }}
   commands:
-  - cd network.bindings
-  - {{ platform.bindings_build }}
+  - cd network.bindings && {{ platform.bindings_build }}
 
   artifacts:
     logs:
