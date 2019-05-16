@@ -104,5 +104,24 @@ package:pack:
       - "upm-ci~/packages/**/*"
   dependencies:
     {% for platform in standard_platforms %}
-    - {{ platform.name }}:build-bindings:build
+    - .yamato/ci.yml#{{ platform.name }}:build-bindings:build
     {% endfor %} # standard_platforms
+
+ci:
+  name: Run CI
+  agent:
+    type: Unity::VM
+    image: 'package-ci/ubuntu:v1.0.4-259354'
+    flavor: b1.small
+  dependencies:
+  {% for version in unity_versions %}
+  {% for platform in standard_platforms %}
+  - .yamato/ci.yml#{{ platform.name }}:{{ version }}:test
+  {% endfor %} # standard_platforms
+  {% endfor %} # version
+  - .yamato/ci.yml#package:pack
+  triggers:
+    branches:
+      only:
+      - /.*/
+      except: []
