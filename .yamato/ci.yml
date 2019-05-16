@@ -41,6 +41,10 @@ validation:{{ version }}:
   - curl https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/utils.py -o utils.py
   - curl https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/validation.py -o validation.py
   - python validation.py --build-version {{ version }} --package-path com.unity.transport
+  artifacts:
+    revisions:
+      paths:
+      - "*_revision.txt"
 
 {% endfor %} # unity_versions
 
