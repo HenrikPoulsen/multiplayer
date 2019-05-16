@@ -40,7 +40,7 @@ validation:{{ version }}:
     flavor: b1.small
   commands:
   - pip install unity-downloader-cli --extra-index-url https://artifactory.eu-cph-1.unityops.net/api/pypi/common-python/simple
-  - python validation.py --build-version ^<version> --package-path com.unity.transport
+  - python validation.py --build-version {{ version }} --package-path com.unity.transport
 
 {% endfor %} # unity_versions
 
