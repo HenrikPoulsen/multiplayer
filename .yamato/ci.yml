@@ -12,7 +12,7 @@ standard_platforms:
   bindings_build: build.bat
   setup_tools:
   - wget -O beforescript.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/beforescript.py
-  - curl -O utils.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/beforescript.py -o utils.py
+  - curl -O utils.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/utils.py -o utils.py
 - name: macOS
   agent:
     type: Unity::VM::osx
@@ -21,7 +21,7 @@ standard_platforms:
   bindings_build: make && make install
   setup_tools:
   - curl https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/beforescript.py -o beforescript.py
-  - curl https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/beforescript.py -o utils.py
+  - curl https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/utils.py -o utils.py
 unity_launcher:
   windows: powershell.exe Tools/CI/utr --artifacts_path=artifacts
   macOS: sh ./Tools/CI/utr --artifacts_path=artifacts
