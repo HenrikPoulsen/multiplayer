@@ -12,7 +12,7 @@ standard_platforms:
   bindings_build: build.bat
   setup_tools:
   - wget -O beforescript.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/beforescript.py
-  - curl -O utils.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/utils.py
+  - wget -O utils.py https://artifactory.eu-cph-1.unityops.net/core-automation/tools/scripts/utils.py
 - name: macOS
   agent:
     type: Unity::VM::osx
